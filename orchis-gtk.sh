@@ -15,7 +15,7 @@ git clone https://github.com/vinceliuice/$NAME
 cd $NAME || exit
 
 # Run the install.sh script with the specified option for Manjaro
-./install.sh -l -t green -s compact --tweaks 
+./install.sh -l -t green -s compact --tweaks compact
 
 # Clean up (remove the cloned directory)
 cd ..
