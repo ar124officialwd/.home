@@ -28,6 +28,13 @@ install_orchis_gtk() {
   prompt_user
 }
 
+# Function to install Orchis GTK Theme
+install_vimix_cursors() {
+  echo "Installing Vimix Cursor Theme..."
+  source vimix-cursors.sh
+  prompt_user
+}
+
 # Function to install NVM
 install_nvm() {
     local HOME_DIR=$1
