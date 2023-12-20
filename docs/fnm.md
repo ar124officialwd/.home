@@ -1,6 +1,5 @@
 # FNM - Fast Node Version Manager
-> https://github.com/Schniz/fnm 
-> 🚀 Fast and simple Node.js version manager, built in Rust 
+> [Fast Node Version Manager](https://github.com/Schniz/fnm): 🚀 Fast and simple Node.js version manager, built in Rust 
 
 `FNM` feature will:
 - Install FNM

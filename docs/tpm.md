@@ -1,6 +1,5 @@
 # TPM - Tmux Plugin Manager
-> https://github.com/Schniz/fnm 
-> Installs and loads tmux plugins.
+> [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm): Installs and loads tmux plugins.
 
 `TPM` feature will:
 - Install TPM

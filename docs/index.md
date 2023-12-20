@@ -12,17 +12,17 @@ Further details about particular feature are very below the following table; Mor
 
 | Feature | Description | See Details
 | ------- | ----------- | -----------
-| 👉 Oh My ZSH | A framework for ZSH | [Read More](./docs/ohmyzsh.md)
-| 👉 FNM | Fast Node version Manager | [Read More](./docs/fnm.md)
-| 👉 Node Modules | Common Global NodeJS Modules (nodemon,pm2,...) | [Read More](./docs/node-modules.md)
-| 👉 TPM | Tmux Plugin Manager | [Read More](./docs/tpm.md)
-| 👉 NvChad | Suitable Neovim Config | [Read More](./docs/nvchad.md)
+| 👉 Oh My ZSH | A framework for ZSH | [Read More](./ohmyzsh.md)
+| 👉 FNM | Fast Node version Manager | [Read More](./fnm.md)
+| 👉 Node Modules | Common Global NodeJS Modules (nodemon,pm2,...) | [Read More](./node-modules.md)
+| 👉 TPM | Tmux Plugin Manager | [Read More](./tpm.md)
+| 👉 NvChad | Suitable Neovim Config | [Read More](./nvchad.md)
 | 👉 Fonts | Patched Nerd Fonts (Fira Code Mono Nerd) | [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 | 👉 Icon Theme | Tela Icon Theme - manjaro theme | [Tela Icon Theme](https://github.com/vinceliuice/Tela-icon-theme)
 | 👉 GTK Theme | Orchis GTK Theme - green theme | [Orchis GTK Theme](https://github.com/vinceliuice/Orchis-theme/)
 | 👉 Cursor Theme | Vimix Cursor Theme | [Cursor Theme](https://github.com/vinceliuice/Vimix-cursors)
-| 👉 Copy Configs | <span style="color: red">Copy Existing Configuration Files to home</span> | [Read More](./docs/copy.md)
-| 👉 Configure | <span style="color: red">Configure common settings</span> | [Read More](./docs/configure.md)
+| 👉 Copy Configs | <span style="color: red">Copy Existing Configuration Files to home</span> | [Read More](./copy.md)
+| 👉 Configure | <span style="color: red">Configure common settings</span> | [Read More](./configure.md)
 
 ## 👉 Copy Config
 It will copy everything from `.home` directory included in repo to `~` or `$HOME`.

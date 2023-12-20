@@ -10,3 +10,7 @@
     - Gnome Workspaces
         - Use fixed number of workspaces: `8`
         - Use keybinding `<Super>$NUM` to switch to given workspace where $NUM means any number from `1` to `8`. Like `<Super>7` will switch to Workspace Number `7`.
+
+> [Gnome Desktop Environment](https://www.gnome.org/): Get things done with ease, comfort, and control.
+
+> [Vince](https://github.com/vinceliuice) is a *Designer Linuxer*. He built awesome Tela Icon Theme, Vimix Cursor Theme and Orchis GTK Theme.
