@@ -26,12 +26,12 @@ generate_archive() {
         echo "Creating $archive_name with max compression..."
         find "$fonts_dir" -name '*.ttf' -exec tar --transform='s|.*/||' -caf "$archive_name" {} +
         echo "$archive_name created successfully."
-        prompt_user "Do you want to delete everything from $fonts_dir? (y/n)"
+        manage_font_prompt_user "Do you want to delete everything from $fonts_dir? (y/n)"
     else
         echo "$archive_name already exists. Updating..."
         find "$fonts_dir" -name '*.ttf' -exec tar --transform='s|.*/||' -caf "$archive_name" {} +
         echo "$archive_name updated successfully."
-        prompt_user "Do you want to delete everything from $fonts_dir? (y/n)"
+        manage_font_prompt_user "Do you want to delete everything from $fonts_dir? (y/n)"
     fi
 }
 
@@ -48,7 +48,7 @@ extract_archive() {
 }
 
 # Prompt user for confirmation
-prompt_user() {
+manage_font_prompt_user() {
     read -q "?$1 "
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then

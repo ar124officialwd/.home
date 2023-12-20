@@ -10,10 +10,10 @@ install_fonts
 install_tela_icons
 install_orchis_gtk
 install_vimix_cursors
-install_nvm "$HOME_DIR"
-install_ohmyzsh "$HOME_DIR"
-install_tpm "$HOME_DIR"
-install_nvchad "$HOME_DIR"
+install_nvm
+install_ohmyzsh
+install_tpm
+install_nvchad
 copy_files "$HOME_DIR"
 configure "$HOME_DIR"
 
