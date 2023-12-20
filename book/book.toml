@@ -1,0 +1,6 @@
+[book]
+authors = ["Ahmad Raza"]
+language = "en"
+multilingual = false
+src = "."
+title = "dothome"
