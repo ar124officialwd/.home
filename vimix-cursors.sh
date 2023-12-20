@@ -16,8 +16,11 @@ cd $NAME || exit
 
 # Run the install.sh script with the specified option for Manjaro
 ./install.sh
+mkdir -p $HOME/.icons 2&> /dev/null
+cp -rfp $HOME/.local/share/icons/Vimix* $HOME/.icons/
 
 # Clean up (remove the cloned directory)
+rm -rf $HOME/.local/share/icons/Vimix*
 cd ..
 rm -rf $NAME
 

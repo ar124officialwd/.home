@@ -40,7 +40,7 @@ configure_interface() {
 if hash dconf 2>/dev/null; then
     NUM_WORKSPACES=8
     configure_workspaces $NUM_WORKSPACES
-    configure_interface "'Vimix-cursors'" "'manjaro-dark'" "'Orchis-Green-Dark-Compact'"
+    configure_interface "'Vimix-white-cursors'" "'manjaro-dark'" "'Orchis-Green-Dark-Compact'"
 else
     echo 'dconf command not found. Make sure `Gnome` and `dconf` is installed!'
     exit 1
