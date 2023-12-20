@@ -50,11 +50,11 @@ while true; do
   print_tasks
 
   # Ask user to pick a task
-  echo -n "Enter the name of the task you want to execute (type 0 to execute all tasks or 'exit' to exit): "
+  echo -n "Enter the name of the task you want to execute (type 0 to execute all tasks or 'q' to quit/exit): "
   read selected_task
 
   # Check if the user wants to exit
-  if [ "$selected_task" = "exit" ]; then
+  if [ "$selected_task" = "q" ]; then
     echo "Exiting..."
     break
   fi
