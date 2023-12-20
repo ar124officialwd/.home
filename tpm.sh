@@ -13,7 +13,7 @@ if ! hash git 2>/dev/null; then
 fi
 
 # Set the default Tmux plugin directory
-TPM_DIR="$HOME"
+TPM_DIR="$HOME/.tmux/plugin/tpm"
 
 # Clone TPM repository if not already present
 if [ ! -d "$TPM_DIR" ]; then

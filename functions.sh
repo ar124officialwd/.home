@@ -6,7 +6,7 @@ prompt_user() {
 }
 
 # Function to execute a task
-execute_task() {
+run_task() {
   echo $1
   source $2
   prompt_user
@@ -22,22 +22,32 @@ install_fonts() {
 
 # Function to install Tela Icon Theme
 install_tela_icons() {
-  execute_task "Installing Tela Icon Theme..." tela-icons.sh
+  run_task "Installing Tela Icon Theme..." tela-icons.sh
 }
 
 # Function to install Orchis GTK Theme
 install_orchis_gtk() {
-  execute_task "Installing Orchis GTK Theme..." orchis-gtk.sh
+  run_task "Installing Orchis GTK Theme..." orchis-gtk.sh
 }
 
 # Function to install Orchis GTK Theme
 install_vimix_cursors() {
-  execute_task "Installing Vimix Cursor Theme..." vimix-cursors.sh
+  run_task "Installing Vimix Cursor Theme..." vimix-cursors.sh
 }
 
 # Function to install NVM
 install_nvm() {
-  execute_task "Installing NVM..." nvm.sh
+  run_task "Installing NVM..." nvm.sh
+}
+
+# Function to install NVM
+install_fnm() {
+  run_task "Installing NVM..." fnm.sh
+}
+
+# Function to install NVM
+install_node_modules() {
+  run_task "Installing Global Node Modules..." node-modules.sh
 }
 
 # Function to install Oh My Zsh
@@ -49,12 +59,12 @@ install_ohmyzsh() {
 
 # Function to install TPM
 install_tpm() {
-  execute_task "Installing TPM..." tpm.sh
+  run_task "Installing TPM..." tpm.sh
 }
 
 # Function to install nvChad
 install_nvchad() {
-  execute_task "Installing nvChad..." nvchad.sh
+  run_task "Installing nvChad..." nvchad.sh
 }
 
 # Function to copy files
@@ -70,4 +80,20 @@ configure() {
   echo "Building fonts cache..."
   fc-cache -f "$HOME/.fonts"
   prompt_user
+}
+
+
+# Do everything
+install_dothome() {
+  install_ohmyzsh
+  install_fnm
+  install_node_modules
+  install_tpm
+  install_nvchad
+  install_fonts
+  install_tela_icons
+  install_orchis_gtk
+  install_vimix_cursors
+  copy_files "$HOME_DIR"
+  configure "$HOME_DIR"
 }
