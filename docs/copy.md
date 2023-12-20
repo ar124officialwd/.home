@@ -6,30 +6,28 @@ It will copy everything from `.home` directory included in repo to `~` or `$HOME
 # `Copy` feature will:
 - Copy everything from `.home` directory in the repo to user home (`~` or `$HOME`) directory.
 
-    - `.config/tmux`: This directory contains tmux configurations.
+    - `.tmux.conf` Configuration file for `tmux`
+        - Automatic window rename
 
-        - `.tmux.conf` features
-            - Automatic window rename
+        - Load Plugins
 
-            - Load Plugins
+        | Plugin | Info |
+        | ------ | ---- |
+        | `tpm` | Tmux Plugin Manager
+        | `arcticicestudio/nord-tmux` | Nord Theme for Tmux
 
-            | Plugin | Info |
-            | ------ | ---- |
-            | `tpm` | Tmux Plugin Manager
-            | `arcticicestudio/nord-tmux` | Nord Theme for Tmux
+        - Key Bindings
 
-            - Key Bindings
-
-            | Key Binding | Task |
-            | ----------- | ---- |
-            | `CTRL+b` | default prefix. |
-            | `<Prefix> h` | Select Left Pane |
-            | `<Prefix> l` | Select Right Pane |
-            | `<Prefix> j` | Select Bottom Pane |
-            | `<Prefix> k` | Select Upper Pane |
-            | `<Prefix> w` | Create New Window
-            | `<Prefix> <Shift>h` | Go to Previous Window
-            | `<Prefix> <Shift>l` | Go to Next Window
+        | Key Binding | Task |
+        | ----------- | ---- |
+        | `CTRL+b` | default prefix. |
+        | `<Prefix> h` | Select Left Pane |
+        | `<Prefix> l` | Select Right Pane |
+        | `<Prefix> j` | Select Bottom Pane |
+        | `<Prefix> k` | Select Upper Pane |
+        | `<Prefix> w` | Create New Window
+        | `<Prefix> <Shift>h` | Go to Previous Window
+        | `<Prefix> <Shift>l` | Go to Next Window
 
     - `.alacritty.yml`: Configuration for `Alacritty Terminal`
         - Set `term` env variable to `xterm-256color`
