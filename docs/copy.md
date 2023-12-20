@@ -45,31 +45,31 @@ It will copy everything from `.home` directory included in repo to `~` or `$HOME
         - Use default theme: `robbyrussell`
         - Add sensible aliases for `zypper`, `vim`, `docker`, `zshrc` and some system commands like `ls`. Alias are listed below, be careful in reading, as one an alias is declared, in its following commands it uses alias instead of original command.
 
-            | Alias | Command |
-            | ----- | ------- |
-            | `zy` | sudo zypper |
-            | `zyi` | zy install |
-            | `zyr` | zy remove |
-            | `zyrr` | zy refresh |
-            | `zys` | zy search |
-            | `vim` | nvim |
-            | `vi` | nvim |
-            | `v` | nvim |
-            | `e` | nvim |
-            | `d` | docker |
-            | `dc` | docker-compose |
-            | `dc_b` | dc build |
-            | `dc_u` | dc up |
-            | `dc_d` | dc down |
-            | `dc_k` | dc kill |
-            | `dc_r` | dc rm --clean-deps |
-            | `dc_clean` | dc_k && echo && dc_r |
-            | `di` | docker image |
-            | `dis` | docker images |
-            | `ll` | ls -la |
-            | `cls` | clear |
-            | `c` | cls |
-            | `zshr` | source ~/.zshrc |
-            | `zshe` | edit ~/.zshrc |
+            | Alias | Command | Info
+            | ----- | ------- | ----
+            | `zy` | `sudo zypper` | Zypper with `sudo`
+            | `zyi` | `zy install` | Install package
+            | `zyr` | `zy remove` | Uninstall package
+            | `zyrr` | `zy refresh` | Refresh Zypper Repositories
+            | `zys` | `zy search` | Search a package
+            | `vim` | `nvim` | Neovim instead of vim
+            | `vi` | `nvim` | Neovim instead of vi
+            | `v` | `nvim` | Neovim
+            | `e` | `nvim` | Text Editor (Neovim)
+            | `d` | `docker` | Docker runtime
+            | `dc` | `docker-compose` | Docker-Compose
+            | `dc_b` | `dc build` | Docker-Compose build
+            | `dc_u` | `dc up` | Docker-Compose Up / Start
+            | `dc_d` | `dc down` | Docker-Compose Down / Stop
+            | `dc_k` | `dc kill` | Docker-Compose Kill
+            | `dc_r` | `dc rm --clean-deps` | Docker Remove container
+            | `dc_clean` | `dc_k && echo && dc_r` | Docker-Compose clean / Stop and remove stack
+            | `di` | `docker image` | Docker image
+            | `dis` | `docker images` | Docker images
+            | `ll` | `ls -la` | List all files including dot files
+            | `cls` | `clear` | Clear screen / terminal
+            | `c` | `cls` | Clear screen / terminal
+            | `zshr` | `source ~/.zshrc` | Reload ZSH config
+            | `zshe` | `edit ~/.zshrc` | Edit ZSH config
 
         > `zypper` is a package manager for OpenSuse Linux Distribution. `docker` is a container runtime. `docker-compose` is an extension to `docker` for composing docker stacks. 

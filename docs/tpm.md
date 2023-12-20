@@ -6,6 +6,6 @@
 - Install TPM
 
 `Copy Files` feature will:
-- Copy directory `.config/tmux` to user HOME directory.
-    - `.config/tmux/.tmux.conf` loads TPM and following plugins:
-        - "arcticicestudio/nord-tmux" Nord Theme for Tmux
+- Copy directory `.tmux.conf` to user HOME directory.
+    - `.config/tmux/` loads and configures TPM
+    - See [copy.md](./copy.md) for more details. 

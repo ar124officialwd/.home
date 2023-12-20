@@ -4,8 +4,8 @@
 
 `FNM` feature will:
 - Install FNM
-- Install latest LTS version
-    - Set it as a default
+- Install `NodeJS` - latest LTS version
+    - Set it as a default version
 
 `Copy Files` feature will:
 - Copy `.zshrc` to user HOME directory.

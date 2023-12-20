@@ -5,3 +5,6 @@
 `NvChad` feature will:
     - Install `NvChad`
     - Luanch `Neovim` to load and configure `NvChad`
+
+### Requirements
+- `git`
