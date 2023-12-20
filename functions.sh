@@ -79,6 +79,10 @@ copy_files() {
 configure() {
   echo "Building fonts cache..."
   fc-cache -f "$HOME/.fonts"
+
+  echo "Configuring Gnome Shell"
+  source gnome-shell.sh
+
   prompt_user
 }
 

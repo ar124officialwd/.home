@@ -18,7 +18,7 @@ tasks=(
   "8:install_orchis_gtk:Install selected set of GTK Themes(Orchis Gtk Theme)"
   "9:install_vimix_cursors:Install selected set of Cursor Themes(Vimix Cursor Themes)"
   "10:copy_files $HOME_DIR:Install Config - Copy config files to home directory"
-  "11:configure $HOME_DIR:Configure- Perform configuration tasks like(fc-cache,...)"
+  "11:configure $HOME_DIR:Configure- Perform configuration tasks like(fc-cache, Gnome shell settings,...)"
   "0:install_dothome:Install `dothome` - Perform all of the above tasks"
 )
 
