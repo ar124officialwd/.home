@@ -178,13 +178,13 @@
 <h1 id="dont-use-unless-you-know-what-you-are-doing"><a class="header" href="#dont-use-unless-you-know-what-you-are-doing"><span style="color: red">DON'T USE UNLESS YOU KNOW WHAT YOU ARE DOING</span></a></h1>
 <p><span style="color: red">You should not use this recipe if you don't know what exactly you want to do. Some parts may behave as <strong>VERY DANGEGROUS</strong> like it may overwrite your existing files.</span></p>
 <h1 id="personal-but-public"><a class="header" href="#personal-but-public">Personal but Public</a></h1>
-<p>Although it is very personalized for me, but one may install and use <strong>if itsuits</strong>.</p>
+<p>Although it is very personalized for me, but one may install and use <strong>if it suits</strong>.</p>
 <h1 id="inclusions"><a class="header" href="#inclusions">Inclusions</a></h1>
 <p>Further details about particular feature are very below the following table; More details are added to dedicated README file for each feature. Explore <code>docs</code> directory to read more. </p>
 <div class="table-wrapper"><table><thead><tr><th>Feature</th><th>Description</th><th>See Details</th></tr></thead><tbody>
 <tr><td>👉 Oh My ZSH</td><td>A framework for ZSH</td><td><a href="./ohmyzsh.html">Read More</a></td></tr>
 <tr><td>👉 FNM</td><td>Fast Node version Manager</td><td><a href="./fnm.html">Read More</a></td></tr>
-<tr><td>👉 Node Modules</td><td>Common Global NodeJS Modules (nodemon,pm2,...)</td><td><a href="./node-modules.html">Read More</a></td></tr>
+<tr><td>👉 Node Modules</td><td>Common Global NodeJS Modules for default NodeJS installation (nodemon,pm2,...)</td><td><a href="./node-modules.html">Read More</a></td></tr>
 <tr><td>👉 TPM</td><td>Tmux Plugin Manager</td><td><a href="./tpm.html">Read More</a></td></tr>
 <tr><td>👉 NvChad</td><td>Suitable Neovim Config</td><td><a href="./nvchad.html">Read More</a></td></tr>
 <tr><td>👉 Fonts</td><td>Patched Nerd Fonts (Fira Code Mono Nerd)</td><td><a href="https://github.com/ryanoasis/nerd-fonts">Nerd Fonts</a></td></tr>
@@ -257,22 +257,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

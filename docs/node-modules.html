@@ -174,16 +174,18 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="node-modules"><a class="header" href="#node-modules">Node Modules</a></h1>
-<p><code>Node Modules</code> feature will install some sensible global node modules. These modules will be of-course installed for globally installed <code>node</code> and <code>npm</code>.</p>
+<p><code>Node Modules</code> feature will install some sensible global node modules. These modules will be installed for the installed <code>node</code> and <code>npm</code>.</p>
 <p>Installed Modules are:</p>
-<ul>
-<li><a href="https://www.npmjs.com/package/nodemon">nodemon</a>
-<blockquote>
-<p>Monitor for any changes in your node.js application and automatically restart the server - perfect for development </p>
-</blockquote>
-</li>
-</ul>
-
+<div class="table-wrapper"><table><thead><tr><th>Module</th><th>Info</th></tr></thead><tbody>
+<tr><td><a href="https://www.npmjs.com/package/nodemon">nodemon</a></td><td><code>Monitor for any changes in your node.js application and automatically restart the server - perfect for development</code></td></tr>
+<tr><td><a href="https://www.npmjs.com/package/pm2">pm2</a></td><td><code>PM2 is a production process manager for Node.js applications with a built-in load balancer. It allows you to keep applications alive forever, to reload them without downtime and to facilitate common system admin tasks.</code></td></tr>
+<tr><td><a href="https://www.npmjs.com/package/serve">serve</a></td><td><code>serve helps you serve a static site, single page application or just a static file (no matter if on your device or on the local network). It also provides a neat interface for listing the directory's contents:</code></td></tr>
+<tr><td><a href="https://www.npmjs.com/package/@angular/cli">@angular/cli</a></td><td><code>Angular CLI - The CLI tool for Angular.</code> Read more about <a href="https://angular.dev">Angular</a>.</td></tr>
+<tr><td><a href="https://www.npmjs.com/package/@ionic/cli">@ionic/cli</a></td><td><code>The Ionic command line interface (CLI) is your go-to tool for developing Ionic apps.</code>. Read more about <a href="https://ionic.io/">Ionic</a>.</td></tr>
+<tr><td><a href="https://www.npmjs.com/package/react-scripts">react-scripts</a></td><td><code>This package includes scripts and configuration used by Create React App.</code>. Read more about <a href="https://react.dev">React.js</a> and <a href="https://create-react-app.dev">Create React App</a>.</td></tr>
+<tr><td><a href="https://www.npmjs.com/package/sequelize-cli">sequelize-cli</a></td><td><code>The Sequelize Command Line Interface (CLI)</code>. Read more about <a href="https://sequelize.org/">Sequelize</a> and <a href="https://github.com/sequelize/cli">Sequelize CLI Tool</a>.</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -213,22 +215,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
