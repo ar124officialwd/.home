@@ -5,7 +5,7 @@ My Personal Linux Desktop Configuration Repository
 <span style="color: red">You should not use this recipe if you don't know what exactly you want to do. Some parts may behave as **VERY DANGEGROUS** like it may overwrite your existing files.</span>
 
 # Personal but Public
-Although it is very personalized for me, but one may install and use **if itsuits**.
+Although it is very personalized for me, but one may install and use **if it suits**.
 
 # Inclusions
 Further details about particular feature are very below the following table; More details are added to dedicated README file for each feature. Explore `docs` directory to read more. 
@@ -14,7 +14,7 @@ Further details about particular feature are very below the following table; Mor
 | ------- | ----------- | -----------
 | 👉 Oh My ZSH | A framework for ZSH | [Read More](./docs/ohmyzsh.md)
 | 👉 FNM | Fast Node version Manager | [Read More](./docs/fnm.md)
-| 👉 Node Modules | Common Global NodeJS Modules (nodemon,pm2,...) | [Read More](./docs/node-modules.md)
+| 👉 Node Modules | Common Global NodeJS Modules for default NodeJS installation (nodemon,pm2,...) | [Read More](./docs/node-modules.md)
 | 👉 TPM | Tmux Plugin Manager | [Read More](./docs/tpm.md)
 | 👉 NvChad | Suitable Neovim Config | [Read More](./docs/nvchad.md)
 | 👉 Fonts | Patched Nerd Fonts (Fira Code Mono Nerd) | [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
