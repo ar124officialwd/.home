@@ -107,5 +107,6 @@ alias zshe="edit ~/.zshrc"
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+export FNM_DIR=$HOME/.fnm
+export PATH="$FNM_DIR:$PATH"
+eval "`fnm env`"
