@@ -47,7 +47,7 @@ install_fnm() {
 
 # Function to install NVM
 install_node_modules() {
-  run_task "Installing Global Node Modules..." node-modules.sh
+  run_task "Installing Global Node Modules for default Node installation..." node-modules.sh
 }
 
 # Function to install Oh My Zsh
