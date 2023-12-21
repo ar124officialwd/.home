@@ -1,14 +1,14 @@
 # dothome
 My Personal Linux Desktop Configuration Repository
 
-# <span style="color: red">DON'T USE UNLESS YOU KNOW WHAT YOU ARE DOING</span>
+### <span style="color: red">DON'T USE UNLESS YOU KNOW WHAT YOU ARE DOING</span>
 <span style="color: red">You should not use this recipe if you don't know what exactly you want to do. Some parts may behave as **VERY DANGEGROUS** like it may overwrite your existing files.</span>
 
-# Personal but Public
+### Personal but Public
 Although it is very personalized for me, but one may install and use **if it suits**.
 
-# Inclusions
-Further details about particular feature are very below the following table; More details are added to dedicated README file for each feature. Explore `docs` directory to read more. 
+### Features / Programs Included
+More details are added to dedicated README file for each feature. Explore `docs` directory to read more. 
 
 | Feature | Description | See Details
 | ------- | ----------- | -----------
@@ -24,17 +24,7 @@ Further details about particular feature are very below the following table; Mor
 | 👉 Copy Configs | <span style="color: red">Copy Existing Configuration Files to home</span> | [Read More](./copy.md)
 | 👉 Configure | <span style="color: red">Configure common settings</span> | [Read More](./configure.md)
 
-## 👉 Copy Config
-It will copy everything from `.home` directory included in repo to `~` or `$HOME`.
-
-<span style="color: red">This may prove to be **VERY DANGEGROUS** as it will **`OVERWRITE`** your existing files.</span>
-
-## 👉 Configure 
-It will configure some parts of linux user system and apply some sensible configurations.
-
-<span style="color: red">This may prove to be **VERY CONFUSING** as it will **`OVERWRITE`** your existing configurations.
-
-## Requirements
+### Requirements
 These scripts need some programs or features to be already installed on host system in order to be installed, configured or run.
 
 - `curl` or `wget` | Either needs to be installed to download some components and installers.
@@ -44,7 +34,7 @@ These scripts need some programs or features to be already installed on host sys
 - `neovim` | `Neovim` (>= 0.9.x) should be installed if `NvChad` needs to be added / configured.
 - `Gnome Desktop Environment` | To configure the interface, only `Gnome Desktop Environment` is targeted. Also `dconf` needs to be installed as well.
 
-## Usage
+### Usage
 1. Clone the Repo
 ```zsh
 git clone https://github.com/ar124official2019/.home.git
