@@ -1,29 +1,20 @@
 #!/bin/zsh
 
-HOME_DIR=$PWD/.home
-
 # Source the functions file
-source functions.sh
+source src/functions.sh
 
 # Define an associative array to store tasks
 tasks=(
-  "1:install_ohmyzsh:Install OhMyZSH - A delightful, open source, community"
-  "2:install_fnm:Install FNM - 🚀 Fast and simple Node.js version manager, built in Rust
-"
-  "3:install_node_modules:Install common global node modules like: nodemon, pm2..."
-  "4:install_tpm:Install tpm - Tmux Plugin Manager"
-  "5:install_nvchad:Install NvChad - Blazing fast Neovim config providing solid defaults and a beautiful UI"
-  "6:install_fonts:Install selected set of fonts, includes(Fira Code Nerd Font,)"
-  "7:install_tela_icons:Install selected set of Tela Icons(Manjaro Circle)"
-  "8:install_orchis_gtk:Install selected set of GTK Themes(Orchis Gtk Theme)"
-  "9:install_vimix_cursors:Install selected set of Cursor Themes(Vimix Cursor Themes)"
-  "10:copy_files $HOME_DIR:Install Config - Copy config files to home directory"
-  "11:configure $HOME_DIR:Configure- Perform configuration tasks like(fc-cache, Gnome shell settings,...)"
-  "0:install_dothome:Install `dothome` - Perform all of the above tasks"
+  "1:terminal:Installing Terminal Utils and Configurations"
+  "2:gnome:Install themes and configure Gnome"
+  "3:nodejs:Install and configure NodeJS (Lastest LTS) using FNM (Node.js version manager)"
+  # "0:install_dothome:Install `dothome` - Perform all of the above tasks"
 )
 
 # Function to print all tasks
 print_tasks() {
+  clear
+  echo "> install.next.sh"
   echo "Available tasks:"
   for task in "${tasks[@]}"; do
     IFS=':' read -r name execution description <<< "$task"
@@ -37,8 +28,9 @@ execute_task() {
   for task in "${tasks[@]}"; do
     IFS=':' read -r name execution description <<< "$task"
     if [ "$name" = "$selected_task" ]; then
-      echo "Executing: $execution"
-      eval "$execution"
+      clear
+      echo "󰡕 Executing task: $execution"
+      eval "task_$execution"
       return
     fi
   done
@@ -61,4 +53,6 @@ while true; do
 
   # Execute the selected task
   execute_task "$selected_task"
+  echo "󰸞 Task executed successfully! Press ENTER to continue."
+  read -r
 done
