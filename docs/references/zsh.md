@@ -18,11 +18,6 @@
 ##### Aliases
 | Alias | Command | Info |
 | ----- | ------- | ---- |
-| `zy` | `sudo zypper` | Zypper with `sudo`
-| `zyi` | `zy install` | Install package
-| `zyr` | `zy remove` | Uninstall package
-| `zyrr` | `zy refresh` | Refresh Zypper Repositories
-| `zys` | `zy search` | Search a package
 | `vim` | `nvim` | Neovim instead of vim
 | `vi` | `nvim` | Neovim instead of vi
 | `v` | `nvim` | Neovim
@@ -42,6 +37,20 @@
 | `c` | `cls` | Clear screen / terminal
 | `zshr` | `source ~/.zshrc` | Reload ZSH config
 | `zshe` | `edit ~/.zshrc` | Edit ZSH config
+
+##### Generic Aliases
+Following aliases are generic, distribution dependent. If distribution is not recognized by script successfully, these alias might not be defined at all.
+
+- `Your Package Manager`: `apt-get` or `apt` if Ubuntu / Debian, `dnf` if Fedora / CentOS / RHEL, `zypper` if openSUSE or `pacman` if Arch detected.
+
+| Alias | Command | Info |
+| ----- | ------- | ---- |
+| `p_` | `Your Package Manager` | Zypper with `sudo`
+| `p_i` | `p_ ...` | Install a package
+| `p_r` | `p_ ...` | Uninstall package
+| `p_u` | `p_ ...` | Upgrade a package
+| `p_s` | `p_ ...` | Search a package
+| `p_rr` | `p_ ...` | Refresh Package Repositories
 
 ##### Plugins
 | Plugin | Info |
