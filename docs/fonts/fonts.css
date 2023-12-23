@@ -98,3 +98,11 @@
   font-weight: 500;
   src: url('source-code-pro-v11-all-charsets-500.woff2') format('woff2');
 }
+
+@font-face {
+  font-family: 'Fira Code Nerd Font Mono';
+  font-style: normal;
+  font-weight: 500;
+
+  src: url('fira-code-nerd-font-mono-regular.ttf') format('truetype');
+}

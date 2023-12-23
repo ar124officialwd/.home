@@ -232,3 +232,16 @@ kbd {
 .result-no-output {
     font-style: italic;
 }
+
+.nf {
+  font-family: "Fira Code Nerd Font Mono";
+}
+
+.nf.em {
+  font-size: 1.5em;
+  padding-inline: 2px;
+}
+
+#fonts-table td {
+  vertical-align: top;
+}
