@@ -22,9 +22,11 @@ fonts() {
 
 # Install Oh My Zsh
 ohmyzsh() {
+  incremental_backup $HOME/.zshrc
   ro curl -so ohmyzsh.sh -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
   ro zsh ohmyzsh.sh "" --unattended
   ro rm ohmyzsh.sh
+  ro cp -rf $CWD/.home/.zshrc $HOME
 }
 
 # Install TPM
