@@ -54,12 +54,15 @@ ensure_dependencies() {
   for dep in "${dependencies[@]}"; do
     # Check if the command is available in the PATH
     if ! command -v "$dep" >/dev/null 2>&1; then
-      # Print an error message if the dependency is not installed
-      echo "Error: Dependency '$dep' is not installed."
-      echo "Please install it before proceeding."
+      e_msg() {
+        # Print an error message if the dependency is not installed
+        echo "Error: Dependency '$dep' is not installed."
+        echo "Please install it before proceeding."
+        exit 1
+      }
 
       # If -o option is provided, return 1; otherwise, exit 1
-      [ "$exit_on_error" -eq 0 ] && return 1 || exit 1
+      [ "$exit_on_error" -eq 0 ] && return 1 || e_msg
     fi
   done
 }
