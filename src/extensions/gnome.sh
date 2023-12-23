@@ -109,7 +109,7 @@ print_feedback_str 2 "Installing Vimix Cursor Theme..."
 vimix_cursors
 
 print_feedback_str 2 "Configuring interface:"
-configure_interface "'Vimix-white-cursors'" "'manjaro-dark'" "'Orchis-Green-Dark-Compact'"
+configure_interface "Vimix-white-cursors" "manjaro-dark" "Orchis-Green-Dark-Compact"
 
 ensure_dependencies -o dconf
 # Proceed with the task only if dependencies are met
