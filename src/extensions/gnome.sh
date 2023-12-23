@@ -36,6 +36,49 @@ vimix_cursors() {
   redirect_output rm -rf $NAME
 }
 
+configure_interface() {
+  # Function to replace or add an entry in a file
+  replace_or_add_entry() {
+    file=$1
+    entry=$2
+    new_line=$3
+
+    if grep -q "^$entry" "$file"; then
+      sed -i "s|^$entry.*|$new_line|g" "$file"
+    else
+      echo "$new_line" >> "$file"
+    fi
+  }
+
+  CURSOR_THEME=$1
+  ICON_THEME=$2
+  GTK_THEME=$3
+
+  incremental_backup $HOME/.Xresources
+  incremental_backup $HOME/.config/gtk-3.0/settings.ini
+  incremental_backup $HOME/.config/gtk-4.0/settings.ini
+
+  # Add Settings section to GTK3+ files
+  replace_or_add_entry $HOME/.config/gtk-3.0/settings.ini "[Settings]" "[Settings]"
+  replace_or_add_entry $HOME/.config/gtk-4.0/settings.ini "[Settings]" "[Settings]"
+
+  # Set Cursor Theme
+  print_feedback_str 3 "Setting Cursor Theme: ${CURSOR_THEME}"
+  replace_or_add_entry $HOME/.Xresources "Xcursor.theme:" "Xcursor.theme: $CURSOR_THEME"
+
+  # Set Icon Theme
+  print_feedback_str 3 "Setting Icon Theme: ${ICON_THEME}"
+  replace_or_add_entry $HOME/.gtkrc-2.0 "gtk-icon-theme-name=" "gtk-icon-theme-name=\"$ICON_THEME\""
+  replace_or_add_entry $HOME/.config/gtk-3.0/settings.ini "gtk-icon-theme-name=" "gtk-icon-theme-name=\"$ICON_THEME\""
+  replace_or_add_entry $HOME/.config/gtk-4.0/settings.ini "gtk-icon-theme-name=" "gtk-icon-theme-name=\"$ICON_THEME\""
+
+  # Set GTK Theme
+  print_feedback_str 3 "Setting GTK Theme: ${GTK_THEME}"
+  replace_or_add_entry $HOME/.gtkrc-2.0 "gtk-theme-name=" "gtk-theme-name=\"$GTK_THEME\""
+  replace_or_add_entry $HOME/.config/gtk-3.0/settings.ini "gtk-theme-name=" "gtk-theme-name=$GTK_THEME"
+  replace_or_add_entry $HOME/.config/gtk-4.0/settings.ini "gtk-theme-name=" "gtk-theme-name=$GTK_THEME"
+}
+
 configure_workspaces() {
   NUM_WORKSPACES=$1
 
@@ -52,37 +95,21 @@ configure_workspaces() {
   done
 }
 
-configure_interface() {
-  CURSOR_THEME=$1
-  ICON_THEME=$2
-  GTK_THEME=$3
-  SHELL_THEME=$4
-
-
-  print_feedback_str 3 "Setting Cursor Theme: ${CURSOR_THEME}"
-  dconf write /org/gnome/desktop/interface/cursor-theme $CURSOR_THEME
-
-  print_feedback_str 3 "Setting Icon Theme: ${ICON_THEME}"
-  dconf write /org/gnome/desktop/interface/icon-theme $ICON_THEME
-
-  print_feedback_str 3 "Setting GTK Theme: ${GTK_THEME}"
-  dconf write /org/gnome/desktop/interface/gtk-theme $GTK_THEME
-
-  # TODO: Enable gnome shell theme
-}
-
 # print_feedback_str 2 "Installing Orchis GTK Theme..."
 # orchis_gtk
 
-print_feedback_str 2 "Installing Tela Icon Theme..."
-tela_icons
+# print_feedback_str 2 "Installing Tela Icon Theme..."
+# tela_icons
 
 # print_feedback_str 2 "Installing Vimix Cursor Theme..."
 # vimix_cursors
 
-print_feedback_str 2 "Configuring workspaces:"
-configure_workspaces 8
-
 print_feedback_str 2 "Configuring interface:"
 configure_interface "'Vimix-white-cursors'" "'manjaro-dark'" "'Orchis-Green-Dark-Compact'"
 
+ensure_dependencies -o dconf
+# Proceed with the task only if dependencies are met
+if [ $? -eq 0 ]; then
+  print_feedback_str 2 "Configuring workspaces:"
+  configure_workspaces 8
+fi

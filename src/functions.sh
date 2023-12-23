@@ -19,19 +19,72 @@ redirect_output() {
 }
 
 # Function to check if given dependencies are installed
+# Function: ensure_dependencies
+# Usage: ensure_dependencies [-o] <dependency1> [<dependency2> ...]
+#
+# Checks if specified dependencies are installed in the system. If a dependency
+# is missing, it prints an error message and either exits the script (default behavior)
+# or returns 1 (if the -o option is provided).
+#
+# Options:
+#   -o  If provided, return 1 instead of exiting the script on missing dependencies.
+#
 ensure_dependencies() {
-  local dependencies=("$@")
+  local dependencies=()
+  local exit_on_error=1
+
+  # Parse options
+  while getopts "o" opt; do
+    case $opt in
+      o)
+        exit_on_error=0
+        ;;
+      \?)
+        echo "Invalid option: -$OPTARG"
+        exit 1
+        ;;
+    esac
+  done
+
+  shift $((OPTIND-1))
+
+  # Remaining arguments are dependencies
+  dependencies=("$@")
 
   for dep in "${dependencies[@]}"; do
     # Check if the command is available in the PATH
-    if ! command -v $dep >/dev/null 2>&1; then
+    if ! command -v "$dep" >/dev/null 2>&1; then
       # Print an error message if the dependency is not installed
       echo "Error: Dependency '$dep' is not installed."
       echo "Please install it before proceeding."
-      exit 1
+
+      # If -o option is provided, return 1; otherwise, exit 1
+      [ "$exit_on_error" -eq 0 ] && return 1 || exit 1
     fi
   done
 }
+
+# Function: incremental_backup
+# Usage: incremental_backup <target> [<source>]
+#
+# Creates a backup of the target file. If the target exists,
+# appends ".bak" with a unique number. Optionally, copies a new
+# source file to the target location before backup.
+incremental_backup() {
+  local target=$1
+  local backup_number=1
+  local backup_suffix=".bak"
+
+  if [ -e "$target" ]; then
+    while [ -e "$target$backup_suffix.$backup_number" ]; do
+      ((backup_number++))
+    done
+
+    [ -n "$2" ] && cp "$2" "$target"
+    cp "$target" "$target$backup_suffix.$backup_number"
+  fi
+}
+
 
 print_feedback_str() {
   local character=""
