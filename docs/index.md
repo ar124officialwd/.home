@@ -1,38 +1,27 @@
 # dothome
-My Personal Linux Desktop Configuration Repository
+My Personal <i>(but Public)</i> Linux Desktop Configuration Repository
 
-### <span style="color: red">DON'T USE UNLESS YOU KNOW WHAT YOU ARE DOING</span>
-<span style="color: red">You should not use this recipe if you don't know what exactly you want to do. Some parts may behave as **VERY DANGEGROUS** like it may overwrite your existing files.</span>
-
-### Personal but Public
-Although it is very personalized for me, but one may install and use **if it suits**.
+### <span style="color: red">Caution</span>
+You should not use this script if you don't know what exactly you want to do. Some parts may behave as **<span style="color: red">DESTRUCTIVE**</span> like it may overwrite your existing files or configs.
 
 ### Features / Programs Included
-More details are added to dedicated README file for each feature. Explore `docs` directory to read more. 
+Click "Read More" link against each feature to read more about installed components, files and applied configurations (like shortcuts).
 
 | Feature | Description | See Details
 | ------- | ----------- | -----------
-| 👉 Oh My ZSH | A framework for ZSH | [Read More](./ohmyzsh.md)
-| 👉 FNM | Fast Node version Manager | [Read More](./fnm.md)
-| 👉 Node Modules | Common Global NodeJS Modules for default NodeJS installation (nodemon,pm2,...) | [Read More](./node-modules.md)
-| 👉 TPM | Tmux Plugin Manager | [Read More](./tpm.md)
-| 👉 NvChad | Suitable Neovim Config | [Read More](./nvchad.md)
-| 👉 Fonts | Patched Nerd Fonts (Fira Code Mono Nerd) | [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
-| 👉 Icon Theme | Tela Icon Theme - manjaro theme | [Tela Icon Theme](https://github.com/vinceliuice/Tela-icon-theme)
-| 👉 GTK Theme | Orchis GTK Theme - green theme | [Orchis GTK Theme](https://github.com/vinceliuice/Orchis-theme/)
-| 👉 Cursor Theme | Vimix Cursor Theme | [Cursor Theme](https://github.com/vinceliuice/Vimix-cursors)
-| 👉 Copy Configs | <span style="color: red">Copy Existing Configuration Files to home</span> | [Read More](./copy.md)
-| 👉 Configure | <span style="color: red">Configure common settings</span> | [Read More](./configure.md)
+| 👉 Terminal | Super-Charge your Linux terminal | [Read More](./terminal.md)
+| 👉 Gnome | Configure Gnome to use stylish UI + Sensible settings | [Read More](./gnome.md)
+| 👉 NodeJS | Install NodeJS version manager, plus latest LTS NodeJS, plus common global node modules. | [Read More](./nodejs.md)
 
 ### Requirements
-These scripts need some programs or features to be already installed on host system in order to be installed, configured or run.
+These scripts need some programs or features to be already installed on host system in order to be installed, configured or run. Some are below:
 
-- `curl` or `wget` | Either needs to be installed to download some components and installers.
+- `curl` | `curl` needs to be installed to download some components and installers.
 - `git` | Some features are fetched and installed from Public Github Repositories, so `git` is a must for those to be installed.
 - `zsh` | ZSH is everywhere, it is only targeted shell and also these scripts are written in ZSH.
 - `tmux` | Tmux feature requires that `tmux` is aready required.
-- `neovim` | `Neovim` (>= 0.9.x) should be installed if `NvChad` needs to be added / configured.
-- `Gnome Desktop Environment` | To configure the interface, only `Gnome Desktop Environment` is targeted. Also `dconf` needs to be installed as well.
+- `nvim` | `Neovim` (>= 0.9.x) should be installed. `nvChad` is added to [Terminal](./terminal.md) feature.
+- `Gnome Desktop Environment` | [Gnome](./gnome.md) feature requires that Gnome and `dconf` are already installed.
 
 ### Usage
 1. Clone the Repo
@@ -52,4 +41,4 @@ zsh install.next.sh
 
 4. Follow the prompt / instructions to install a particular feature, all features or to quit.
 
-> <span style="color:red">Depcrecated: DO NOT DIRECTLY RUN `install.sh`</span>
+----------
