@@ -99,14 +99,14 @@ configure_workspaces() {
   done
 }
 
-# print_feedback_str 2 "Installing Orchis GTK Theme..."
-# orchis_gtk
+print_feedback_str 2 "Installing Orchis GTK Theme..."
+orchis_gtk
 
-# print_feedback_str 2 "Installing Tela Icon Theme..."
-# tela_icons
+print_feedback_str 2 "Installing Tela Icon Theme..."
+tela_icons
 
-# print_feedback_str 2 "Installing Vimix Cursor Theme..."
-# vimix_cursors
+print_feedback_str 2 "Installing Vimix Cursor Theme..."
+vimix_cursors
 
 print_feedback_str 2 "Configuring interface:"
 configure_interface "'Vimix-white-cursors'" "'manjaro-dark'" "'Orchis-Green-Dark-Compact'"
