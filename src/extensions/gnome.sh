@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 CWD=$PWD
-ensure_dependencies dconf git
+ensure_dependencies git
 
 orchis_gtk() {
   local NAME="Orchis-theme"
@@ -112,4 +112,6 @@ ensure_dependencies -o dconf
 if [ $? -eq 0 ]; then
   print_feedback_str 2 "Configuring workspaces:"
   configure_workspaces 8
+else 
+  print_feedback_str 2 'Skipped Configuring Workspaces: `dconf` not found!'
 fi
