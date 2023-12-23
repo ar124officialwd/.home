@@ -53,6 +53,20 @@ configure_workspaces() {
   done
 }
 
+configure_app_keybindings() {
+  # Terminal: <Super>Return -> alacritty
+  print_feedback_str 3 "Terminal: <Super>Return -> alacritty"
+  dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name "'Terminal, Alacritty'"
+  dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding "'<Super>Return'"
+  dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command "'alacritty'"
+
+  # Terminal with Tmux: <Shift><Super>Return -> alacritty -e /bin/tmux
+  print_feedback_str 3 "Terminal with Tmux: <Shift><Super>Return -> alacritty -e /bin/tmux"
+  dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name "'Terminal, Alacritty + tmux'"
+  dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding "'<Shift><Super>Return'"
+  dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'alacritty -e /usr/bin/tmux'"
+}
+
 configure_interface() {
   CURSOR_THEME=$1
   ICON_THEME=$2
@@ -83,6 +97,9 @@ vimix_cursors
 
 print_feedback_str 2 "Configuring workspaces:"
 configure_workspaces 8
+
+print_feedback_str 2 "Configuring Application Shortcuts / Keybindings:"
+configure_app_keybindings
 
 print_feedback_str 2 "Configuring interface:"
 configure_interface "'Vimix-white-cursors'" "'manjaro-dark'" "'Orchis-Green-Dark-Compact'"
