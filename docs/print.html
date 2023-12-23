@@ -469,11 +469,6 @@
 </div>
 <h5 id="aliases"><a class="header" href="#aliases">Aliases</a></h5>
 <div class="table-wrapper"><table><thead><tr><th>Alias</th><th>Command</th><th>Info</th></tr></thead><tbody>
-<tr><td><code>zy</code></td><td><code>sudo zypper</code></td><td>Zypper with <code>sudo</code></td></tr>
-<tr><td><code>zyi</code></td><td><code>zy install</code></td><td>Install package</td></tr>
-<tr><td><code>zyr</code></td><td><code>zy remove</code></td><td>Uninstall package</td></tr>
-<tr><td><code>zyrr</code></td><td><code>zy refresh</code></td><td>Refresh Zypper Repositories</td></tr>
-<tr><td><code>zys</code></td><td><code>zy search</code></td><td>Search a package</td></tr>
 <tr><td><code>vim</code></td><td><code>nvim</code></td><td>Neovim instead of vim</td></tr>
 <tr><td><code>vi</code></td><td><code>nvim</code></td><td>Neovim instead of vi</td></tr>
 <tr><td><code>v</code></td><td><code>nvim</code></td><td>Neovim</td></tr>
@@ -493,6 +488,20 @@
 <tr><td><code>c</code></td><td><code>cls</code></td><td>Clear screen / terminal</td></tr>
 <tr><td><code>zshr</code></td><td><code>source ~/.zshrc</code></td><td>Reload ZSH config</td></tr>
 <tr><td><code>zshe</code></td><td><code>edit ~/.zshrc</code></td><td>Edit ZSH config</td></tr>
+</tbody></table>
+</div>
+<h5 id="generic-aliases"><a class="header" href="#generic-aliases">Generic Aliases</a></h5>
+<p>Following aliases are generic, distribution dependent. If distribution is not recognized by script successfully, these alias might not be defined at all.</p>
+<ul>
+<li><code>Your Package Manager</code>: <code>apt-get</code> or <code>apt</code> if Ubuntu / Debian, <code>dnf</code> if Fedora / CentOS / RHEL, <code>zypper</code> if openSUSE or <code>pacman</code> if Arch detected.</li>
+</ul>
+<div class="table-wrapper"><table><thead><tr><th>Alias</th><th>Command</th><th>Info</th></tr></thead><tbody>
+<tr><td><code>p_</code></td><td><code>Your Package Manager</code></td><td>Zypper with <code>sudo</code></td></tr>
+<tr><td><code>p_i</code></td><td><code>p_ ...</code></td><td>Install a package</td></tr>
+<tr><td><code>p_r</code></td><td><code>p_ ...</code></td><td>Uninstall package</td></tr>
+<tr><td><code>p_u</code></td><td><code>p_ ...</code></td><td>Upgrade a package</td></tr>
+<tr><td><code>p_s</code></td><td><code>p_ ...</code></td><td>Search a package</td></tr>
+<tr><td><code>p_rr</code></td><td><code>p_ ...</code></td><td>Refresh Package Repositories</td></tr>
 </tbody></table>
 </div>
 <h5 id="plugins-1"><a class="header" href="#plugins-1">Plugins</a></h5>
