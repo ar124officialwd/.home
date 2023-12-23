@@ -54,6 +54,9 @@ configure_interface() {
   ICON_THEME=$2
   GTK_THEME=$3
 
+  redirect_output mkdir -p $HOME/.config/gtk-3.0 $HOME/.config/gtk-4.0
+  touch $HOME/.Xresources $HOME/.gtkrc-2.0 $HOME/.config/gtk-3.0/settings.ini $HOME/.config/gtk-4.0/settings.ini
+ 
   incremental_backup $HOME/.Xresources
   incremental_backup $HOME/.config/gtk-3.0/settings.ini
   incremental_backup $HOME/.config/gtk-4.0/settings.ini
