@@ -75,11 +75,57 @@ plugins=(vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 ### ALIASES ###################################################################
-alias zy="sudo zypper"
-alias zyi="zy install"
-alias zyr="zy remove"
-alias zyrr="zy refresh"
-alias zys="zy search"
+# Define package manager aliases based on the distribution
+# Get the distribution name from /etc/os-release
+distribution=""
+if [[ -r /etc/os-release ]]; then
+    distribution=$(awk -F= '/^ID=/{print $2}' /etc/os-release | tr -d '"')
+else
+    echo "Error: /etc/os-release not found or not readable."
+    exit 1
+fi
+
+case "$distribution" in
+  "ubuntu" | "debian")
+    alias p_="sudo apt-get"
+    alias p_i="p_ install"
+    alias p_r="p_ remove"
+    alias p_u="p_ upgrade"
+    alias p_s="sudo apt search"
+    alias p_rr="_p update"
+    ;;
+
+  "fedora" | "centos" | "rhel")
+    alias p_="sudo dnf"
+    alias p_i="p_ install"
+    alias p_r="p_ remove"
+    alias p_u="p_ update"
+    alias p_s="p_ search"
+    alias p_rr="p_ makecache"
+    ;;
+
+  "opensuse" | "opensuse-leap" | "opensuse-tumbleweed")
+    alias p_="sudo zypper"
+    alias p_i="p_ install"
+    alias p_r="p_ remove"
+    alias p_u="p_ update"
+    alias p_s="p_ search"
+    alias p_rr="p_ refresh"
+    ;;
+
+  "arch" | "manjaro")
+    alias p_="sudo pacman"
+    alias p_i="p_ -S"
+    alias p_r="p_ -R"
+    alias p_u="p_ -Syu"
+    alias p_s="p_ -Ss"
+    alias p_rr="p_ -Sy"
+    ;;
+
+  *)
+    # Ignore unsupported distributions without any output
+    ;;
+esac
 
 alias vim="nvim"
 alias vi="nvim"
