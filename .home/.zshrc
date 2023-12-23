@@ -107,6 +107,9 @@ alias zshe="edit ~/.zshrc"
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 
+export TPM_DIR="$HOME/.tmux/plugin/tpm"
+export NVCHAD_DIR="$HOME/.config/nvim"
 export FNM_DIR=$HOME/.fnm
+
 export PATH="$FNM_DIR:$PATH"
-eval "`fnm env`"
+command -v fnm >/dev/null 2>&1 && eval "`fnm env`"
