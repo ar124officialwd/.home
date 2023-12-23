@@ -1,24 +1,27 @@
 #!/bin/zsh
 
+ensure_dependencies curl unzip
+
 export FNM_DIR=$HOME/.fnm
 export PATH="$FNM_DIR:$PATH"
-alias ro=redirect_output
 
-reload_env() {
-  ro eval "`fnm env`"
+node_fnm() {
+  curl -s -o- https://fnm.vercel.app/install | zsh -s -- --install-dir $FNM_DIR --skip-shell
 }
 
-fnm() {
-  ro curl -s -o- https://fnm.vercel.app/install | zsh -s -- --install-dir $FNM_DIR --skip-shell
+node_reload_env() {
+  export FNM_DIR=$HOME/.fnm
+  export PATH="$FNM_DIR:$PATH"
+  eval "$(fnm env --use-on-cd)"
 }
 
-latest_lts() {
-  reload_env
-  ro fnm install --lts
+node_latest_lts() {
+  node_reload_env
+  redirect_output fnm install --lts
 }
 
 node_modules() {
-  reload_env
+  node_reload_env
 
   npm_install_if_not_installed() {
     local packages=("$@")
@@ -44,17 +47,12 @@ node_modules() {
 
 # Check if curl is installed
 
-if hash curl 2>/dev/null; then
-  print_feedback_str 2 "Installing FNM to ${FNM_DIR}"
-  fnm
+print_feedback_str 2 "Installing FNM to ${FNM_DIR}"
+node_fnm
 
-  print_feedback_str 2 'Installing NodeJS, latest LTS Version...'
-  latest_lts
+print_feedback_str 2 'Installing NodeJS, latest LTS Version...'
+node_latest_lts
 
-  print_feedback_str 2 'Installing Common Global Modules...'
-  node_modules
-else
-  echo 'Error: `curl` is not installed. Please install curl and run the script again.'
-  exit 1
-fi
+print_feedback_str 2 'Installing Common Global Modules...'
+node_modules
 
