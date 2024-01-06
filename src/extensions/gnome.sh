@@ -1,15 +1,13 @@
 #!/bin/zsh
 
-TMP=/tmp
 CWD=$PWD
 ensure_dependencies dconf git
 
 orchis_gtk() {
   local NAME="Orchis-theme"
 
-  cd $TMP;
-  redirect_output git clone -q https://github.com/vinceliuice/$NAME
-  cd $NAME || exit
+  redirect_output git clone -q https://github.com/vinceliuice/$NAME download_$NAME
+  cd download_$NAME || exit
   redirect_output ./install.sh -l -t green -s compact --tweaks compact
   cd $CWD
 }
@@ -17,9 +15,8 @@ orchis_gtk() {
 tela_icons() {
   local NAME="Tela-icon-theme"
 
-  cd $TMP;
-  redirect_output git clone -q https://github.com/vinceliuice/${NAME}.git
-  cd $NAME || exit
+  redirect_output git clone -q https://github.com/vinceliuice/${NAME}.git download_$NAME
+  cd download_$NAME || exit
   redirect_output zsh ./install.sh -n manjaro
   cd $CWD
 }
@@ -27,9 +24,8 @@ tela_icons() {
 vimix_cursors() {
   local NAME="Vimix-cursors"
 
-  cd $TMP;
-  redirect_output git clone -q https://github.com/vinceliuice/$NAME
-  cd $NAME || exit
+  redirect_output git clone -q https://github.com/vinceliuice/$NAME download_$NAME
+  cd download_$NAME || exit
   redirect_output ./install.sh
   redirect_output mkdir -p $HOME/.icons 2&> /dev/null
   redirect_output cp -rfp $HOME/.local/share/icons/Vimix* $HOME/.icons/ # Should be installed to ~/.icons
