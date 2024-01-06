@@ -6,7 +6,10 @@ ensure_dependencies dconf git
 orchis_gtk() {
   local NAME="Orchis-theme"
 
-  redirect_output git clone -q https://github.com/vinceliuice/$NAME download_$NAME
+  if [ ! -d download_$NAME ]; then
+    redirect_output git clone -q https://github.com/vinceliuice/$NAME download_$NAME
+  fi
+
   cd download_$NAME || exit
   redirect_output ./install.sh -l -t green -s compact --tweaks compact
   cd $CWD
@@ -15,16 +18,22 @@ orchis_gtk() {
 tela_icons() {
   local NAME="Tela-icon-theme"
 
-  redirect_output git clone -q https://github.com/vinceliuice/${NAME}.git download_$NAME
+  if [ ! -d download_$NAME ]; then
+    redirect_output git clone -q https://github.com/vinceliuice/${NAME}.git download_$NAME
+  fi 
+
   cd download_$NAME || exit
-  redirect_output zsh ./install.sh -n manjaro
+  redirect_output ./install.sh -n manjaro
   cd $CWD
 }
 
 vimix_cursors() {
   local NAME="Vimix-cursors"
 
-  redirect_output git clone -q https://github.com/vinceliuice/$NAME download_$NAME
+  if [ ! -d download_$NAME ]; then
+    redirect_output git clone -q https://github.com/vinceliuice/$NAME download_$NAME
+  fi
+
   cd download_$NAME || exit
   redirect_output ./install.sh
   redirect_output mkdir -p $HOME/.icons 2&> /dev/null
@@ -43,9 +52,10 @@ configure_workspaces() {
   dconf write /org/gnome/desktop/wm/preferences/num-workspaces $NUM_WORKSPACES
 
   print_feedback_str 3 "Setting shortcuts for switching to worksapce (1..8)"
-  workspaces=("1" "2" "3" "4" "5" "6" "7" "8")
-  for workspace in $workspaces; do
-    dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-${worksapce} "['<Super>${workspace}']"
+  keys=("1" "2" "3" "4" "5" "6" "7" "8")
+  for key in $keys; do
+    dconf write /org/gnome/desktop/wm/keybindings/switch-to-application-${key} "'[]'"
+    dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-${key} "['<Super>${key}']"
   done
 }
 
@@ -67,8 +77,7 @@ configure_interface() {
   CURSOR_THEME=$1
   ICON_THEME=$2
   GTK_THEME=$3
-  SHELL_THEME=$4
-
+  COLOR_SCHEME=$4 
 
   print_feedback_str 3 "Setting Cursor Theme: ${CURSOR_THEME}"
   dconf write /org/gnome/desktop/interface/cursor-theme $CURSOR_THEME
@@ -76,10 +85,10 @@ configure_interface() {
   print_feedback_str 3 "Setting Icon Theme: ${ICON_THEME}"
   dconf write /org/gnome/desktop/interface/icon-theme $ICON_THEME
 
-  print_feedback_str 3 "Setting GTK Theme: ${GTK_THEME}"
+  print_feedback_str 3 "GTK / Gnome Theme: ${GTK_THEME}"
   dconf write /org/gnome/desktop/interface/gtk-theme $GTK_THEME
-
-  # TODO: Enable gnome shell theme
+  dconf write /org/gnome/desktop/wm/preferences/theme $GTK_THEME
+  dconf write /org/gnome/desktop/interface/color-scheme $COLOR_SCHEME
 }
 
 print_feedback_str 2 "Installing Orchis GTK Theme..."
@@ -98,4 +107,4 @@ print_feedback_str 2 "Configuring Application Shortcuts / Keybindings:"
 configure_app_keybindings
 
 print_feedback_str 2 "Configuring interface:"
-configure_interface "'Vimix-white-cursors'" "'manjaro-dark'" "'Orchis-Green-Dark-Compact'"
+configure_interface "'Vimix-white-cursors'" "'manjaro-dark'" "'Orchis-Green-Dark-Compact'" "'prefer-dark'"
