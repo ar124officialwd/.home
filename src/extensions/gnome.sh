@@ -89,6 +89,11 @@ configure_interface() {
   dconf write /org/gnome/desktop/interface/gtk-theme $GTK_THEME
   dconf write /org/gnome/desktop/wm/preferences/theme $GTK_THEME
   dconf write /org/gnome/desktop/interface/color-scheme $COLOR_SCHEME
+
+  # LibAdwaita
+  for file in $HOME/.themes/$GTK_THEME/gtk-4.0/*; do
+    ln -sf $file $HOME/.config/gtk-4.0/
+  done
 }
 
 print_feedback_str 2 "Installing Orchis GTK Theme..."
