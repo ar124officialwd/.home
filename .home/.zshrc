@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode)
+plugins=(vi-mode yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -159,3 +159,11 @@ export FNM_DIR=$HOME/.fnm
 
 export PATH="$FNM_DIR:$PATH"
 command -v fnm >/dev/null 2>&1 && eval "`fnm env`"
+
+# pnpm
+export PNPM_HOME="/home/ar/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
