@@ -51,11 +51,15 @@ configure_workspaces() {
   print_feedback_str 3 "Setting number of workspaces to: ${NUM_WORKSPACES}"
   dconf write /org/gnome/desktop/wm/preferences/num-workspaces $NUM_WORKSPACES
 
-  print_feedback_str 3 "Setting shortcuts for switching to worksapce (1..8)"
+  print_feedback_str 3 "Setting shortcuts for worksapces (1..8)"
   keys=("1" "2" "3" "4" "5" "6" "7" "8")
   for key in $keys; do
-    dconf write /org/gnome/desktop/wm/keybindings/switch-to-application-${key} "'[]'"
+    print_feedback_str 4 "Switch to worksapce ${key}:"
+    dconf write /org/gnome/shell/keybindings/switch-to-application-${key} "['']" # Reset
     dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-${key} "['<Super>${key}']"
+
+    print_feedback_str 4 "Move window to worksapce ${key}:"
+    dconf write /org/gnome/desktop/wm/keybindings/move-to-workspace-${key} "['<Super><Shift>${key}']"
   done
 }
 
