@@ -84,17 +84,18 @@ configure_interface() {
   COLOR_SCHEME=$4 
 
   print_feedback_str 3 "Setting Cursor Theme: ${CURSOR_THEME}"
-  dconf write /org/gnome/desktop/interface/cursor-theme $CURSOR_THEME
+  dconf write /org/gnome/desktop/interface/cursor-theme "'$CURSOR_THEME'"
 
   print_feedback_str 3 "Setting Icon Theme: ${ICON_THEME}"
-  dconf write /org/gnome/desktop/interface/icon-theme $ICON_THEME
+  dconf write /org/gnome/desktop/interface/icon-theme "'$ICON_THEME'"
 
   print_feedback_str 3 "GTK / Gnome Theme: ${GTK_THEME}"
-  dconf write /org/gnome/desktop/interface/gtk-theme $GTK_THEME
-  dconf write /org/gnome/desktop/wm/preferences/theme $GTK_THEME
-  dconf write /org/gnome/desktop/interface/color-scheme $COLOR_SCHEME
+  dconf write /org/gnome/desktop/interface/gtk-theme "'$GTK_THEME'"
+  dconf write /org/gnome/desktop/wm/preferences/theme "'$GTK_THEME'"
+  dconf write /org/gnome/desktop/interface/color-scheme "'$COLOR_SCHEME'"
 
   # LibAdwaita
+  redirect_output mkdir -p $HOME/.config/gtk-4.0
   for file in $HOME/.themes/$GTK_THEME/gtk-4.0/*; do
     ln -sf $file $HOME/.config/gtk-4.0/
   done
@@ -116,4 +117,4 @@ print_feedback_str 2 "Configuring Application Shortcuts / Keybindings:"
 configure_app_keybindings
 
 print_feedback_str 2 "Configuring interface:"
-configure_interface "'Vimix-white-cursors'" "'manjaro-dark'" "'Orchis-Green-Dark-Compact'" "'prefer-dark'"
+configure_interface "Vimix-white-cursors" "manjaro-dark" "Orchis-Green-Dark-Compact" "prefer-dark"
