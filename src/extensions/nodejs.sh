@@ -37,8 +37,8 @@ node_modules() {
     done
   }
 
-  npm_install_if_not_installed \
-    pnpm yarn yo @babel/core @babel/cli supabase typescript \
+  npm_install_if_not_installed pnpm \
+    yarn yo @babel/core @babel/cli typescript \
     nodemon pm2 serve \
     @angular/cli @ionic/cli react-scripts \
     sequelize-cli
