@@ -75,6 +75,8 @@ configure_app_keybindings() {
   dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name "'Terminal, Alacritty + tmux'"
   dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding "'<Shift><Super>Return'"
   dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'alacritty -e /usr/bin/tmux'"
+
+  dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
 }
 
 configure_interface() {
