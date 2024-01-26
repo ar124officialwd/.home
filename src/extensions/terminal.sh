@@ -8,7 +8,7 @@ alias ro=redirect_output
 
 # Install Config Files
 config() {
-  ro cp -rf $CWD/.home/{.bin,.alacritty.yml,.tmux.conf,.zshrc} $HOME/
+  ro cp -rf $CWD/.home/{.bin,.alacritty.toml,.tmux.conf,.zshrc} $HOME/
 }
 
 # Install Nerd Fonts

@@ -90,21 +90,10 @@ configure_interface() {
 
   print_feedback_str 3 "Setting Icon Theme: ${ICON_THEME}"
   dconf write /org/gnome/desktop/interface/icon-theme "'$ICON_THEME'"
-
-  print_feedback_str 3 "GTK / Gnome Theme: ${GTK_THEME}"
-  dconf write /org/gnome/desktop/interface/gtk-theme "'$GTK_THEME'"
-  dconf write /org/gnome/desktop/wm/preferences/theme "'$GTK_THEME'"
-  dconf write /org/gnome/desktop/interface/color-scheme "'$COLOR_SCHEME'"
-
-  # LibAdwaita
-  redirect_output mkdir -p $HOME/.config/gtk-4.0
-  for file in $HOME/.themes/$GTK_THEME/gtk-4.0/*; do
-    ln -sf $file $HOME/.config/gtk-4.0/
-  done
 }
 
-print_feedback_str 2 "Installing Orchis GTK Theme..."
-orchis_gtk
+# print_feedback_str 2 "Installing Orchis GTK Theme..."
+# orchis_gtk
 
 print_feedback_str 2 "Installing Tela Icon Theme..."
 tela_icons

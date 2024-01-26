@@ -133,3 +133,8 @@ task_nodejs() {
   run_task nodejs
 }
 
+task_development() {
+  print_feedback_str 1 'Installing development tools...'
+  run_task development
+}
+

@@ -6,7 +6,9 @@ export FNM_DIR=$HOME/.fnm
 export PATH="$FNM_DIR:$PATH"
 
 node_fnm() {
-  curl -s -o- https://fnm.vercel.app/install | zsh -s -- --install-dir $FNM_DIR --skip-shell
+  if [ ! -d $HOME/.fnm ]; then
+    curl -s -o- https://fnm.vercel.app/install | zsh -s -- --install-dir $FNM_DIR --skip-shell
+  fi
 }
 
 node_reload_env() {
@@ -37,11 +39,8 @@ node_modules() {
     done
   }
 
-  npm_install_if_not_installed pnpm \
-    yarn yo @babel/core @babel/cli typescript \
-    nodemon pm2 serve \
-    @angular/cli @ionic/cli react-scripts \
-    sequelize-cli
+  npm_install_if_not_installed pnpm yarn \
+    stylelint jsonlint htmllint eslint
 }
 
 
