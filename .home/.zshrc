@@ -168,7 +168,7 @@ export NVCHAD_DIR="$HOME/.config/nvim"
 export FNM_DIR=$HOME/.fnm
 
 export PATH="$FNM_DIR:$RUST:$PATH"
-command -v fnm >/dev/null 2>&1 && eval "`fnm env`"
+command -v fnm >/dev/null 2>&1 && eval "`fnm env --use-on-cd`"
 
 # pnpm
 export PNPM_HOME="/home/ar/.local/share/pnpm"
