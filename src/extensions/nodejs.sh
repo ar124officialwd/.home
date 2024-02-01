@@ -40,7 +40,9 @@ node_modules() {
   }
 
   npm_install_if_not_installed pnpm yarn \
-    stylelint jsonlint htmllint eslint tailwindcss
+    stylelint jsonlint htmllint eslint
+    @angular/cli @angular/language-service
+    @tailwindcss/language-server tailwindcss
 }
 
 
