@@ -40,7 +40,7 @@ node_modules() {
   }
 
   npm_install_if_not_installed pnpm yarn \
-    stylelint jsonlint htmllint eslint
+    stylelint jsonlint htmllint eslint tailwindcss
 }
 
 
