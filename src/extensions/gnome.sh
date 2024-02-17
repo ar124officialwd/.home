@@ -3,18 +3,6 @@
 CWD=$PWD
 ensure_dependencies dconf git
 
-orchis_gtk() {
-  local NAME="Orchis-theme"
-
-  if [ ! -d download_$NAME ]; then
-    redirect_output git clone -q https://github.com/vinceliuice/$NAME download_$NAME
-  fi
-
-  cd download_$NAME || exit
-  redirect_output ./install.sh -l -t green -s compact --tweaks compact
-  cd $CWD
-}
-
 tela_icons() {
   local NAME="Tela-icon-theme"
 
@@ -82,8 +70,6 @@ configure_app_keybindings() {
 configure_interface() {
   CURSOR_THEME=$1
   ICON_THEME=$2
-  GTK_THEME=$3
-  COLOR_SCHEME=$4 
 
   print_feedback_str 3 "Setting Cursor Theme: ${CURSOR_THEME}"
   dconf write /org/gnome/desktop/interface/cursor-theme "'$CURSOR_THEME'"
@@ -91,9 +77,6 @@ configure_interface() {
   print_feedback_str 3 "Setting Icon Theme: ${ICON_THEME}"
   dconf write /org/gnome/desktop/interface/icon-theme "'$ICON_THEME'"
 }
-
-# print_feedback_str 2 "Installing Orchis GTK Theme..."
-# orchis_gtk
 
 print_feedback_str 2 "Installing Tela Icon Theme..."
 tela_icons
@@ -108,4 +91,4 @@ print_feedback_str 2 "Configuring Application Shortcuts / Keybindings:"
 configure_app_keybindings
 
 print_feedback_str 2 "Configuring interface:"
-configure_interface "Vimix-white-cursors" "manjaro-dark" "Orchis-Green-Dark-Compact" "prefer-dark"
+configure_interface "Vimix-white-cursors" "manjaro-dark"

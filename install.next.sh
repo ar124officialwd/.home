@@ -7,9 +7,7 @@ source src/functions.sh
 tasks=(
   "1:terminal:Installing Terminal Utils and Configurations"
   "2:gnome:Install themes and configure Gnome"
-  "3:nodejs:Install and configure NodeJS (Lastest LTS) using FNM (Node.js version manager)"
-  "4:development:Install development tools"
-  # "0:install_dothome:Install `dothome` - Perform all of the above tasks"
+  "3:development:Install development tools"
 )
 
 # Function to print all tasks
