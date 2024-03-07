@@ -8,7 +8,13 @@ alias ro=redirect_output
 
 # Install Config Files
 config() {
-  ro cp -rf $CWD/.home/{.bin,.alacritty.toml,.tmux.conf,.zprofile,.zshrc} $HOME/
+  ro cp -rf $CWD/.home/{.bin,.alacritty*,.tmux*,.zprofile,.zshrc} $HOME/
+
+  # Default Alacritty Theme (Dark)
+  ln -sf $HOME/.alacritty-dark.yml $HOME/.alacritty.yml
+
+  # Default Tmux Config (Dark Theme)
+  ln -sf $HOME/.tmux-dark.conf $HOME/.tmux.conf
 }
 
 # Install Nerd Fonts
@@ -37,6 +43,11 @@ tpm() {
   if [ ! -d "$TPM_DIR" ]; then
     ro git clone -q https://github.com/tmux-plugins/tpm "$TPM_DIR"
   fi
+  
+  
+  # Install Tmux Plugins
+  # rm -rf ~/.tmux/plugins/tmux 2>/dev/null || true
+  ~/.tmux/plugin/tpm/bin/install_plugins
 }
 
 # Install NvChad

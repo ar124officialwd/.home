@@ -64,7 +64,13 @@ configure_app_keybindings() {
   dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding "'<Shift><Super>Return'"
   dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'alacritty -e /usr/bin/tmux'"
 
-  dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
+  # Switch Terminal Theme: <Shift><Super>t -> ast.sh
+  print_feedback_str 3 "Switch Alacritty Theme: <Shift><Super>t -> /bin/zsh -c ~/.bin/ast.sh"
+  dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/name "'Switch Alacritty Theme'"
+  dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding "'<Shift><Super>t'"
+  dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command "'zsh -c ~/.bin/ast.sh'"
+
+  dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']"
 }
 
 configure_interface() {
